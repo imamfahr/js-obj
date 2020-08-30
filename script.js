@@ -47,13 +47,25 @@ let fruits = [
         clade : "Dicotyl",
         img:"https://images.unsplash.com/photo-1582979512210-99b6a53386f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
     },
-    {
-        name: "Grape",
-        scientificName: "Vitis vinifera",
-        clade : "Dicotyl",
-        img:"https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
-    },
+    
 ]
 
-console.log(fruits[2].name)
+// console.log(fruits[2].name)
 
+function fruitCards(fruit) {
+    return `
+    <div class="card">
+           <div class="img" style="background-image:url('${fruit.img}');"></div>
+           <div class="contain raleway">
+               <div class="name">${fruit.name}</div>
+               <div class="clad">${fruit.clade}</div>
+               <div class="sciName">${fruit.scientificName}</div>
+           </div>
+       </div>
+    </div>       
+    `
+}
+
+
+document.getElementsByClassName('container')[0].innerHTML =
+`${fruits.map(fruitCards).join("")}`;
